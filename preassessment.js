@@ -15,8 +15,11 @@ NetID:
  * @returns {number}
  */
 function mySum(inputArray) {
-  // TODO: Replace the dummy implementation
-  return 6;
+  let sum = 0;
+  for (let i = 0; i < inputArray.length; i++) {
+    sum += inputArray[i];
+  }
+  return sum;
 }
 
 /**
@@ -31,10 +34,11 @@ function mySum(inputArray) {
  * @returns {boolean}
  */
 function isLeapYear(year) {
-  // TODO: Replace the dummy implementation
-  if (year === 2000) return true;
-  if (year === 2100) return false;
-  return true;
+  if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+    return true;
+  } else {
+    return false;
+  } 
 }
 
 /**
@@ -46,8 +50,11 @@ function isLeapYear(year) {
  * @returns {boolean}
  */
 function isPrime(n) {
-  // Replace the dummy implementation
-  return n === 17;
+  if (n <= 1) return false;
+  for (let i = 2; i * i <= n; i++) {
+    if (n % i === 0) return false;
+  }
+  return true;
 }
 
 /**
@@ -60,8 +67,9 @@ function isPrime(n) {
  * @returns {number[]}
  */
 function perfectSquares(inputArray) {
-  // Replace the dummy implementation
-  return [0, 1, 4, 9];
+  return inputArray.filter((number) => {
+    return Math.sqrt(number) % 1 === 0;
+  });
 }
 
 module.exports = { mySum, isLeapYear, isPrime, perfectSquares };
